@@ -1,5 +1,0 @@
-if(EXISTS "C:/Users/domin/source/repos/counter_project1/build/counter_tests[1]_tests.cmake")
-  include("C:/Users/domin/source/repos/counter_project1/build/counter_tests[1]_tests.cmake")
-else()
-  add_test(counter_tests_NOT_BUILT counter_tests_NOT_BUILT)
-endif()

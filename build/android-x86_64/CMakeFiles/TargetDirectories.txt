@@ -1,3 +1,0 @@
-C:/Users/domin/source/repos/counter_project1/build/android-x86_64/CMakeFiles/counter.dir
-C:/Users/domin/source/repos/counter_project1/build/android-x86_64/CMakeFiles/edit_cache.dir
-C:/Users/domin/source/repos/counter_project1/build/android-x86_64/CMakeFiles/rebuild_cache.dir

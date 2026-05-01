@@ -1,7 +1,0 @@
-CounterTest.Basic 1 0.010028
-CounterTest.Concurrent 1 0.0162161
-CounterTest.Overflow 1 0.0113412
-CounterTest.Underflow 1 0.0105616
-CounterTest.Null 1 0.0118282
-CounterTest.Lifecycle 1 0.0104107
----
