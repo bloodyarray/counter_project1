@@ -4,7 +4,7 @@
 
 Цей проєкт реалізує потокобезпечний лічильник (thread-safe counter) на C++17 з використанням C-інтерфейсу.
 
-Функціональність:
+### Функціональність
 
 * атомарне збільшення та зменшення значення
 * безпечне читання значення
@@ -25,18 +25,22 @@
 
 ### Збірка
 
+```bash
 cmake -B build
 cmake --build build
+```
 
 ### Запуск тестів
 
+```bash
 ctest --test-dir build
+```
 
 ---
 
 ## Потокобезпечність
 
-Використовується std::atomic<int>, що дозволяє:
+Використовується `std::atomic<int>`, що дозволяє:
 
 * виконувати lock-free операції
 * уникнути використання mutex
@@ -50,7 +54,7 @@ ctest --test-dir build
 
 Використовується Google Test.
 
-Покриті сценарії:
+### Покриті сценарії:
 
 * базові операції (increment / decrement / get / reset)
 * багатопотокове збільшення
@@ -63,12 +67,48 @@ ctest --test-dir build
 
 ## Очікуваний результат
 
-6 tests passed
+```
+100% tests passed
+```
+
+---
+
+## Android Build
+
+### Вимоги
+
+* Android NDK
+* CMake
+* Ninja
+
+### Збірка
+
+```bash
+export ANDROID_NDK_HOME=path_to_ndk
+./scripts/build_android.sh
+```
+
+### Результат
+
+```
+dist/android/arm64-v8a/libcounter.so
+dist/android/armeabi-v7a/libcounter.so
+dist/android/x86_64/libcounter.so
+```
+
+---
+
+## iOS Build
+
+iOS збірка потребує macOS (Xcode + clang toolchain).
+
+На Windows не підтримується.
 
 ---
 
 ## Структура проєкту
 
+```
 counter_project/
 ├── include/
 │   └── counter.h
@@ -76,15 +116,27 @@ counter_project/
 │   └── counter.cpp
 ├── tests/
 │   └── counter_test.cpp
+├── scripts/
+│   └── build_android.sh
 ├── CMakeLists.txt
 └── README.md
+```
+
+---
+
+## .gitignore (рекомендовано)
+
+```
+build/
+dist/
+```
 
 ---
 
 ## Примітки
 
-Функція counter_set_value використовується лише для тестування.
-У production-версії її можна прибрати або приховати.
+* Функція `__counter_set_value_for_tests` використовується лише для тестування
+* У production-версії її слід приховати або видалити
 
 ---
 
@@ -96,4 +148,4 @@ counter_project/
 * використання атомарних операцій
 * написання юніт-тестів
 * використання CMake для збірки
-
+* крос-компіляцію під Android (NDK)
