@@ -22,10 +22,8 @@ extern "C" {
     CounterStatus counter_get(const Counter* c, int* out_value);
     CounterStatus counter_reset(Counter* c);
 
-    /* 🔥 helper для тестів */
-    void counter_set_value(Counter* c, int value);
-
 #ifdef __cplusplus
 }
 #endif
+
 #endif

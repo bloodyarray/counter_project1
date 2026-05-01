@@ -4,6 +4,9 @@
 #include <vector>
 #include <climits>
 
+// ?? forward declaration (ÂÀÆËÈÂÎ)
+void __counter_set_value_for_tests(Counter*, int);
+
 TEST(CounterTest, Basic) {
     Counter* c = counter_create();
     int v;
@@ -53,7 +56,7 @@ TEST(CounterTest, Overflow) {
     Counter* c = counter_create();
     int v;
 
-    counter_set_value(c, INT_MAX);
+    __counter_set_value_for_tests(c, INT_MAX);
 
     EXPECT_EQ(counter_increment(c, &v), COUNTER_ERR_OVERFLOW);
 
@@ -64,7 +67,7 @@ TEST(CounterTest, Underflow) {
     Counter* c = counter_create();
     int v;
 
-    counter_set_value(c, INT_MIN);
+    __counter_set_value_for_tests(c, INT_MIN);
 
     EXPECT_EQ(counter_decrement(c, &v), COUNTER_ERR_UNDERFLOW);
 

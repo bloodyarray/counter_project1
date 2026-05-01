@@ -1,6 +1,7 @@
 ﻿#include "counter.h"
 #include <atomic>
 #include <climits>
+#include <new>   // 🔥 ОБОВ'ЯЗКОВО
 
 struct Counter {
     std::atomic<int> value;
@@ -63,8 +64,9 @@ CounterStatus counter_reset(Counter* c) {
     return COUNTER_OK;
 }
 
-/* 🔥 helper для тестів */
-void counter_set_value(Counter* c, int value) {
+#ifdef BUILD_TESTS
+void __counter_set_value_for_tests(Counter* c, int value) {
     if (!c) return;
     c->value.store(value);
 }
+#endif
